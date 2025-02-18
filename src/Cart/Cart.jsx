@@ -59,6 +59,12 @@ export default function Cart() {
   const [isLoading, setIsLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
   const [showAdressForm, setShowAddressForm] = useState(false);
+  function handleAddressForm() {
+    if (numOfCartItems == 0) {
+      setShowAddressForm(false);
+      toast.error("Your cart is empty");
+    } else setShowAddressForm(true);
+  }
   const {
     getUserCartProducts,
     removeProductFromCart,
@@ -141,7 +147,7 @@ export default function Cart() {
           </div>
           <div className=" text-end">
             <button
-              onClick={() => setShowAddressForm(true)}
+              onClick={handleAddressForm}
               type="button"
               className="self-end text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 mb-4"
             >
@@ -183,7 +189,7 @@ export default function Cart() {
             </div>
           </>
         )}
-        {showAdressForm && (
+        {showAdressForm && numOfCartItems != 0 && (
           <>
             <div
               onClick={() => setShowAddressForm(false)}

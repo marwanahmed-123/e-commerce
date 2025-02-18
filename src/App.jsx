@@ -13,30 +13,34 @@ import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import ProductDetails from "./ProductDetails/ProductDetails";
 import toast, { Toaster } from "react-hot-toast";
 import AllOrders from "./AllOrders/AllOrders";
+import WishList from "./WishList/WishList";
 function App() {
   const router = createBrowserRouter([
     {
       path: "",
       element: <Layout />,
       children: [
-        { path: "register", element: <Register /> },
-        { path: "login", element: <Login /> },
+        { path: "/e-commerce/register", element: <Register /> },
+        { path: "/e-commerce/login", element: <Login /> },
         { path: "*", element: <Notfound /> },
         {
-          index: true,
+          path: "e-commerce",
           element: (
             <ProtectedRoute>
               <Home />
             </ProtectedRoute>
           ),
         },
-        { path: "cart", element: <ProtectedRoute>{<Cart />}</ProtectedRoute> },
         {
-          path: "brands",
+          path: "/e-commerce/cart",
+          element: <ProtectedRoute>{<Cart />}</ProtectedRoute>,
+        },
+        {
+          path: "/e-commerce/brands",
           element: <ProtectedRoute>{<Brands />}</ProtectedRoute>,
         },
         {
-          path: "products",
+          path: "/e-commerce/products",
           element: (
             <ProtectedRoute>
               <Products />
@@ -44,7 +48,7 @@ function App() {
           ),
         },
         {
-          path: "productDetails/:productId/:categoryId",
+          path: "/e-commerce/productDetails/:productId/:categoryId",
           element: (
             <ProtectedRoute>
               <ProductDetails />
@@ -52,7 +56,7 @@ function App() {
           ),
         },
         {
-          path: "categories",
+          path: "/e-commerce/categories",
           element: (
             <ProtectedRoute>
               <Categories />
@@ -60,10 +64,18 @@ function App() {
           ),
         },
         {
-          path: "allorders",
+          path: "/e-commerce/allorders",
           element: (
             <ProtectedRoute>
               <AllOrders />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "/e-commerce/wishlist",
+          element: (
+            <ProtectedRoute>
+              <WishList />
             </ProtectedRoute>
           ),
         },

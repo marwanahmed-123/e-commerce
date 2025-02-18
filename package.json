@@ -19,6 +19,7 @@
     "bootstrap": "^5.3.3",
     "flowbite": "^3.1.2",
     "formik": "^2.4.6",
+    "jwt-decode": "^4.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",

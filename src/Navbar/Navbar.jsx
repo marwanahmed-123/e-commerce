@@ -1,31 +1,32 @@
 import { useContext, useEffect, useState } from "react";
 import Style from "./Navbar.module.css";
 import { Navigate, NavLink, useNavigate } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../Context/UserContext";
 import { FaCartShopping } from "react-icons/fa6";
 export default function Navbar() {
   const { isLoggedin, setToken } = useContext(UserContext);
   const navigate = useNavigate();
   function logout() {
     setToken(null);
-    navigate("/login");
+    navigate("/e-commerce/login");
   }
   const [pages, setPages] = useState([
-    { text: "Home", path: "/" },
-    { text: "Cart", path: "/cart" },
-    { text: "Products", path: "/products" },
-    { text: "Brands", path: "/brands" },
-    { text: "Categories", path: "/categories" },
+    { text: "Home", path: "/e-commerce" },
+    { text: "Cart", path: "/e-commerce/cart" },
+    { text: "Products", path: "/e-commerce/products" },
+    { text: "Brands", path: "/e-commerce/brands" },
+    { text: "Categories", path: "/e-commerce/categories" },
+    { text: "Wish List", path: "/e-commerce/wishlist" },
   ]);
   const [authPages, setAuthPages] = useState([
-    { text: "Login", path: "/login" },
-    { text: "Register", path: "/register" },
+    { text: "Login", path: "/e-commerce/login" },
+    { text: "Register", path: "/e-commerce/register" },
   ]);
   return (
     <nav className="bg-gray-100 border-gray-200">
       <div className="max-w-screen-xl flex flex-wrap items-center gap-4 mx-auto p-4 justify-between">
         <NavLink
-          to=""
+          to="e-commerce/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <span className="self-center text-2xl font-semibold whitespace-nowrap">

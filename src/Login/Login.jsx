@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import Loading from "../loading/loading";
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../Context/UserContext";
 export default function Login() {
   const { setToken } = useContext(UserContext);
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ export default function Login() {
         values
       );
       if (data.message == "success") {
-        navigate("/");
+        navigate("/e-commerce/");
         setToken(data.token);
       } else {
         alert(data.message);
