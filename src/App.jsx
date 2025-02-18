@@ -1,5 +1,5 @@
 import "./App.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 import Home from "./Home/Home";
 import Layout from "./Layout/Layout";
 import Cart from "./Cart/Cart";
@@ -14,17 +14,19 @@ import ProductDetails from "./ProductDetails/ProductDetails";
 import toast, { Toaster } from "react-hot-toast";
 import AllOrders from "./AllOrders/AllOrders";
 import WishList from "./WishList/WishList";
+
 function App() {
-  const router = createBrowserRouter([
+  const router = createHashRouter([
+    // Use createHashRouter here
     {
-      path: "",
+      path: "/e-commerce", // Base path for your app
       element: <Layout />,
       children: [
-        { path: "/e-commerce/register", element: <Register /> },
-        { path: "/e-commerce/login", element: <Login /> },
+        { path: "register", element: <Register /> },
+        { path: "login", element: <Login /> },
         { path: "*", element: <Notfound /> },
         {
-          path: "e-commerce",
+          path: "home",
           element: (
             <ProtectedRoute>
               <Home />
@@ -32,15 +34,15 @@ function App() {
           ),
         },
         {
-          path: "/e-commerce/cart",
+          path: "cart",
           element: <ProtectedRoute>{<Cart />}</ProtectedRoute>,
         },
         {
-          path: "/e-commerce/brands",
+          path: "brands",
           element: <ProtectedRoute>{<Brands />}</ProtectedRoute>,
         },
         {
-          path: "/e-commerce/products",
+          path: "products",
           element: (
             <ProtectedRoute>
               <Products />
@@ -48,7 +50,7 @@ function App() {
           ),
         },
         {
-          path: "/e-commerce/productDetails/:productId/:categoryId",
+          path: "productDetails/:productId/:categoryId",
           element: (
             <ProtectedRoute>
               <ProductDetails />
@@ -56,7 +58,7 @@ function App() {
           ),
         },
         {
-          path: "/e-commerce/categories",
+          path: "categories",
           element: (
             <ProtectedRoute>
               <Categories />
@@ -64,7 +66,7 @@ function App() {
           ),
         },
         {
-          path: "/e-commerce/allorders",
+          path: "allorders",
           element: (
             <ProtectedRoute>
               <AllOrders />
@@ -72,7 +74,7 @@ function App() {
           ),
         },
         {
-          path: "/e-commerce/wishlist",
+          path: "wishlist",
           element: (
             <ProtectedRoute>
               <WishList />
@@ -82,6 +84,7 @@ function App() {
       ],
     },
   ]);
+
   return (
     <>
       <Toaster />
