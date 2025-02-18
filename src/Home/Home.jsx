@@ -26,7 +26,7 @@ export default function Home() {
             onChange={(e) => setSearchProduct(e.target.value)}
             type="text"
             placeholder="Search..."
-            className="w-full px-4 py-1 m-12 border border-gray-300 rounded-lg focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-200"
+            className="w-full px-4 py-1 my-12 border border-gray-300 rounded-lg focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-200"
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {filterProducts.length > 0 ? (
