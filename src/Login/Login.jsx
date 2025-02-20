@@ -37,7 +37,7 @@ export default function Login() {
         values
       );
       if (data.message == "success") {
-        navigate("/e-commerce/");
+        navigate("/");
         setToken(data.token);
       } else {
         alert(data.message);

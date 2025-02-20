@@ -47,7 +47,7 @@ export default function Register() {
         values
       );
       if (data.message == "success") {
-        navigate("/e-commerce/login");
+        navigate("/login");
       } else {
         alert(data.message);
       }

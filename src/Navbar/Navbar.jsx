@@ -8,25 +8,25 @@ export default function Navbar() {
   const navigate = useNavigate();
   function logout() {
     setToken(null);
-    navigate("/e-commerce/login");
+    navigate("/login");
   }
   const [pages, setPages] = useState([
-    { text: "Home", path: "/e-commerce" },
-    { text: "Cart", path: "/e-commerce/cart" },
-    { text: "Products", path: "/e-commerce/products" },
-    { text: "Brands", path: "/e-commerce/brands" },
-    { text: "Categories", path: "/e-commerce/categories" },
-    { text: "Wish List", path: "/e-commerce/wishlist" },
+    { text: "Home", path: "/" },
+    { text: "Cart", path: "/cart" },
+    { text: "Products", path: "/products" },
+    { text: "Brands", path: "/brands" },
+    { text: "Categories", path: "/categories" },
+    { text: "Wish List", path: "/wishlist" },
   ]);
   const [authPages, setAuthPages] = useState([
-    { text: "Login", path: "/e-commerce/login" },
-    { text: "Register", path: "/e-commerce/register" },
+    { text: "Login", path: "/login" },
+    { text: "Register", path: "/register" },
   ]);
   return (
     <nav className="bg-gray-100 border-gray-200">
       <div className="max-w-screen-xl flex flex-wrap items-center gap-4 mx-auto p-4 justify-between">
         <NavLink
-          to="e-commerce/"
+          to="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <span className="self-center text-2xl font-semibold whitespace-nowrap">
@@ -79,7 +79,7 @@ export default function Navbar() {
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 ">
               <li>
                 <NavLink
-                  to={"/e-commerce/cart"}
+                  to={"/cart"}
                   className="block py-2 px-3 text-gray-500 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-700 md:p-0 text-3xl"
                 >
                   <FaCartShopping />

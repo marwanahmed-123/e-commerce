@@ -7,6 +7,6 @@ export default function ProtectedRoute({ children }) {
   if (isLoggedin) {
     return children;
   } else {
-    return <Navigate to="/e-commerce/login" />;
+    return <Navigate to="/login" />;
   }
 }

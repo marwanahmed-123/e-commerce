@@ -1,5 +1,5 @@
 import "./App.css";
-import { RouterProvider, createHashRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./Home/Home";
 import Layout from "./Layout/Layout";
 import Cart from "./Cart/Cart";
@@ -14,19 +14,17 @@ import ProductDetails from "./ProductDetails/ProductDetails";
 import toast, { Toaster } from "react-hot-toast";
 import AllOrders from "./AllOrders/AllOrders";
 import WishList from "./WishList/WishList";
-
 function App() {
-  const router = createHashRouter([
-    // Use createHashRouter here
+  const router = createBrowserRouter([
     {
-      path: "/e-commerce", // Base path for your app
+      path: "",
       element: <Layout />,
       children: [
-        { path: "register", element: <Register /> },
-        { path: "login", element: <Login /> },
+        { path: "/register", element: <Register /> },
+        { path: "/login", element: <Login /> },
         { path: "*", element: <Notfound /> },
         {
-          path: "home",
+          index: true,
           element: (
             <ProtectedRoute>
               <Home />
@@ -34,15 +32,15 @@ function App() {
           ),
         },
         {
-          path: "cart",
+          path: "/cart",
           element: <ProtectedRoute>{<Cart />}</ProtectedRoute>,
         },
         {
-          path: "brands",
+          path: "/brands",
           element: <ProtectedRoute>{<Brands />}</ProtectedRoute>,
         },
         {
-          path: "products",
+          path: "/products",
           element: (
             <ProtectedRoute>
               <Products />
@@ -50,7 +48,7 @@ function App() {
           ),
         },
         {
-          path: "productDetails/:productId/:categoryId",
+          path: "/productDetails/:productId/:categoryId",
           element: (
             <ProtectedRoute>
               <ProductDetails />
@@ -58,7 +56,7 @@ function App() {
           ),
         },
         {
-          path: "categories",
+          path: "/categories",
           element: (
             <ProtectedRoute>
               <Categories />
@@ -66,7 +64,7 @@ function App() {
           ),
         },
         {
-          path: "allorders",
+          path: "/allorders",
           element: (
             <ProtectedRoute>
               <AllOrders />
@@ -74,7 +72,7 @@ function App() {
           ),
         },
         {
-          path: "wishlist",
+          path: "/wishlist",
           element: (
             <ProtectedRoute>
               <WishList />
@@ -84,7 +82,6 @@ function App() {
       ],
     },
   ]);
-
   return (
     <>
       <Toaster />
